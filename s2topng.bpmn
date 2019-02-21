@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  <bpmn:process id="Process_1" isExecutable="false">
+    <bpmn:documentation textFormat="text/x-comments">
+      <![CDATA[ {"realization" : {
+        "realizationURI" : "https://santoro@essi-lab.eu/git/r/vlab-s2topng.git"
+      }} ]]>
+    </bpmn:documentation>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1xcerr6</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_0uuzscq" name="Convert to PNG">
+      <bpmn:incoming>SequenceFlow_1xcerr6</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0lngnpj</bpmn:outgoing>
+      <bpmn:property id="Property_0iza1rg" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_08r7uwd">
+        <bpmn:sourceRef>DataObjectReference_0ia38ym</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0iza1rg</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1cgz2og">
+        <bpmn:targetRef>DataObjectReference_1nbu2rb</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="SequenceFlow_1xcerr6" sourceRef="StartEvent_1" targetRef="Task_0uuzscq" />
+    <bpmn:dataObjectReference id="DataObjectReference_0ia38ym" name="Sentinel 2A scene" dataObjectRef="DataObject_0h3a3ff" />
+    <bpmn:dataObject id="DataObject_0h3a3ff">
+        <bpmn:documentation textFormat="text/x-comments">
+            <![CDATA[ {"inputObject" : {
+      "id": "DataObject_0h3a3ff",
+      "inputType": "individual",
+      "valueType": "value",
+      "description": "Sentinel 2A scene (https://USER:PWD@scihub.copernicus.eu/dhus/odata/v1/Products('4c74f791-6c89-4760-9cda-285cc49f2603')/$value)",
+      "name": "Sentinel 2A scene",
+      "obligation": true,
+      "hasDefault": false,
+      "valueSchema": "url"
+            }} ]]>
+        </bpmn:documentation>
+    </bpmn:dataObject>
+    <bpmn:endEvent id="EndEvent_0rfv21o">
+      <bpmn:incoming>SequenceFlow_0lngnpj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0lngnpj" sourceRef="Task_0uuzscq" targetRef="EndEvent_0rfv21o" />
+    <bpmn:dataObjectReference id="DataObjectReference_1nbu2rb" name="S2A png" dataObjectRef="DataObject_0n95v5p" />
+    <bpmn:dataObject id="DataObject_0n95v5p">
+        <bpmn:documentation textFormat="text/x-comments">
+    <![CDATA[ {"outputObject" : {
+      "id": "DataObject_0n95v5p",
+      "outputType": "individual",
+      "valueType": "value",
+      "description": "S2A png",
+      "name": "S2A png",
+      "valueSchema": "url"
+    }} ]]>
+        </bpmn:documentation>
+    </bpmn:dataObject>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_0uuzscq_di" bpmnElement="Task_0uuzscq">
+        <dc:Bounds x="374" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xcerr6_di" bpmnElement="SequenceFlow_1xcerr6">
+        <di:waypoint xsi:type="dc:Point" x="209" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="374" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="291.5" y="98" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="DataObjectReference_0ia38ym_di" bpmnElement="DataObjectReference_0ia38ym">
+        <dc:Bounds x="300" y="259" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="274" y="312" width="89" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_08r7uwd_di" bpmnElement="DataInputAssociation_08r7uwd">
+        <di:waypoint xsi:type="dc:Point" x="336" y="259" />
+        <di:waypoint xsi:type="dc:Point" x="409" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_0rfv21o_di" bpmnElement="EndEvent_0rfv21o">
+        <dc:Bounds x="694" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="712" y="141" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0lngnpj_di" bpmnElement="SequenceFlow_0lngnpj">
+        <di:waypoint xsi:type="dc:Point" x="474" y="120" />
+        <di:waypoint xsi:type="dc:Point" x="694" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="584" y="98" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="DataObjectReference_1nbu2rb_di" bpmnElement="DataObjectReference_1nbu2rb">
+        <dc:Bounds x="570" y="259" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="567" y="312" width="43" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1cgz2og_di" bpmnElement="DataOutputAssociation_1cgz2og">
+        <di:waypoint xsi:type="dc:Point" x="467" y="157" />
+        <di:waypoint xsi:type="dc:Point" x="582" y="259" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
